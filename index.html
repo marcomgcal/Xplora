@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Xplora</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<header>
+			<a href="#" class="brand">Xplora</a>
+			<div class="menu-btn"></div>
+			<div class="navigation">
+				<div class="navigation-items">
+					<a href="#">Home</a>
+					<a href="#">Sobre mí</a>
+					<a href="#">Aventura</a>
+					<a href="#">Galería</a>
+					<a href="#">Contacto</a>
+				</div>
+			</div>
+		</header>
+
+		<section class="home">
+			<video
+				class="video-slide active"
+				src="./video1"
+				autoplay
+				muted
+				loop
+			></video>
+			<video class="video-slide" src="./video2.mp4" autoplay muted loop></video>
+			<video class="video-slide" src="./video3.mp4" autoplay muted loop></video>
+			<video class="video-slide" src="./video4" autoplay muted loop></video>
+			<video class="video-slide" src="./video5" autoplay muted loop></video>
+			<div class="content active">
+				<h1>La vida es un continuo<br /><span>viaje</span></h1>
+				<p>
+					Viajar es regresar, viajar es volverse mundano, es conocer otra gente,
+					es volver a empezar. Empezar extendiendo la mano, aprendiendo del
+					fuerte, es sentir soledad. Viajar es marcharse de casa, es vestirse de
+					loco diciendo todo y nada en una postal. Es dormir en otra cama,
+					sentir que el tiempo es corto, viajar es regresar.
+				</p>
+				<a href="#">Saber más</a>
+			</div>
+			<div class="content">
+				<h1>
+					Piérdete en el mundo y <br /><span>encuéntrate contigo mismo</span>
+				</h1>
+				<p>
+					Nadie se sumerge en ninguna aventura esperando resultados mediocres.
+					La gente, pese a tener un chasco nueve de cada diez veces, desea tener
+					al menos una experiencia suprema, aunque sólo sea una vez. Y eso es lo
+					que mueve el mundo. Eso es el arte, supongo.
+				</p>
+				<a href="#">Saber más</a>
+			</div>
+			<div class="content">
+				<h1>
+					No todos los que deambulan<br />
+					<span>están perdidos</span>
+				</h1>
+				<p>
+					Lo conmovedor o irónico de dejar atrás la juventud está implícito en
+					cada uno de los momentos gozosos al viajar: uno sabe que la primera
+					alegría jamás será recobrada, y el viajero sabio aprende a no repetir
+					sus éxitos sino a ir tras nuevos lugares todo el tiempo.
+				</p>
+				<a href="#">Saber más</a>
+			</div>
+			<div class="content">
+				<h1>Deja que el mundo <br /><span>te sorprenda</span></h1>
+				<p>
+					La recompensa y el lujo más grande de viajar es, cada día, poder
+					experimentar cosas como si fuera la primera vez, estar en una posición
+					en la que casi nada nos es tan familiar como para darlo por sentado.
+				</p>
+				<a href="#">Saber más</a>
+			</div>
+			<div class="content">
+				<h1>Aventura: <br /><span>la búsqueda de la vida</span></h1>
+				<p>
+					Dentro de veinte años estarás más decepcionado de las cosas que no
+					hiciste que de las que hiciste. Así que desata amarras y navega
+					alejándote de los puertos conocidos. Aprovecha los vientos alisios en
+					tus velas. Explora. Sueña. Descubre.
+				</p>
+				<a href="#">Saber más</a>
+			</div>
+			<div class="media-icons">
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+				<a href="#"><i class="fab fa-instagram"></i></a>
+				<a href="#"><i class="fab fa-twitter"></i></a>
+			</div>
+			<div class="slider-navigation">
+				<div class="nav-btn active"></div>
+				<div class="nav-btn"></div>
+				<div class="nav-btn"></div>
+				<div class="nav-btn"></div>
+				<div class="nav-btn"></div>
+			</div>
+		</section>
+
+		<script type="text/javascript">
+			const menuBtn = document.querySelector('.menu-btn');
+			const navigation = document.querySelector('.navigation');
+
+			menuBtn.addEventListener('click', () => {
+				menuBtn.classList.toggle('active');
+				navigation.classList.toggle('active');
+			});
+
+			const btns = document.querySelectorAll('.nav-btn');
+			const slides = document.querySelectorAll('.video-slide');
+			const contents = document.querySelectorAll('.content');
+
+			var sliderNav = function (manual) {
+				btns.forEach((btn) => {
+					btn.classList.remove('active');
+				});
+
+				slides.forEach((slide) => {
+					slide.classList.remove('active');
+				});
+
+				contents.forEach((content) => {
+					content.classList.remove('active');
+				});
+
+				btns[manual].classList.add('active');
+				slides[manual].classList.add('active');
+				contents[manual].classList.add('active');
+			};
+
+			btns.forEach((btn, i) => {
+				btn.addEventListener('click', () => {
+					sliderNav(i);
+				});
+			});
+		</script>
+	</body>
+</html>
